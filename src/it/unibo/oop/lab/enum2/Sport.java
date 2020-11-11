@@ -16,69 +16,34 @@ package it.unibo.oop.lab.enum2;
  * 
  */
 public enum Sport {
+	BASKET(Place.BOTH, 7, "basket"),
+	VOLLEY(Place.BOTH, 7, "volley"),
+	TENNIS(Place.BOTH, 2, "tennis"),
+	BIKE(Place.OUTDOOR, 1, "bike"),
+	F1(Place.OUTDOOR, 1, "F1"),
+	MOTOGP(Place.OUTDOOR, 1, "motogp"),
+	SOCCER(Place.OUTDOOR, 11, "soccer");
+	
+	private final Place p;
+	private final int noTeamMembers;
+	private final String actualName;
+	
+	private Sport(final Place place, final int noTeamMembers, final String actualName) {
+		this.p = place;
+		this.noTeamMembers = noTeamMembers;
+		this.actualName = actualName;
+	}
 
-    /*
-     * TODO
-     * 
-     * Declare the following sports:
-     * 
-     * - basket
-     * 
-     * - volley
-     * 
-     * - tennis
-     * 
-     * - bike
-     * 
-     * - F1
-     * 
-     * - motogp
-     * 
-     * - soccer
-     * 
-     */
 
-    /*
-     * TODO
-     * 
-     * [FIELDS]
-     * 
-     * Declare required fields
-     */
-
-    /*
-     * TODO
-     * 
-     * [CONSTRUCTOR]
-     * 
-     * Define a constructor like this:
-     * 
-     * - Sport(final Place place, final int noTeamMembers, final String actualName)
-     */
-
-    /*
-     * TODO
-     * 
-     * [METHODS] To be defined
-     * 
-     * 
-     * 1) public boolean isIndividualSport()
-     * 
-     * Must return true only if called on individual sports
-     * 
-     * 
-     * 2) public boolean isIndoorSport()
-     * 
-     * Must return true in case the sport is practices indoor
-     * 
-     * 
-     * 3) public Place getPlace()
-     * 
-     * Must return the place where this sport is practiced
-     * 
-     * 
-     * 4) public String toString()
-     * 
-     * Returns the string representation of a sport
-     */
+	public boolean isIndividualSport() {
+		return this.noTeamMembers == 1;
+	}
+	
+	public Place getPlace() {
+		return this.p;
+	}
+	
+	public String toString() {
+		return this.actualName;
+	}
 }
